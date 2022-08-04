@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Aprendizado no Javascript</title>
+    <style>
+        header{
+            background-color: rgb(8, 0, 39);
+            color: white;
+            text-align: center;
+        }
+        h3{
+            padding: 10px;
+        }
+        section{
+            margin: auto;
+            background-color: rgba(221, 221, 221, 0.568);
+        }
+        @media screen and (max-width: 360px){
+            section table{
+            font-size: 10px;
+        }}
+        .block{
+        box-shadow: 0 0 5px 5px rgba(128, 128, 128, 0.527);
+        padding: 5px 0;
+        }        
+        
+    </style> 
+</head>
+<body>
+    <header>
+        <h1>JavaScript</h1>
+        <h3>Historico de comandos JavaScript</h3>
+    </header>
+    <section>
+        <div class="container">
+
+            <div id="input" class="container"></div>
+        </div>        
+    </section>
+    <footer>
+    </footer>        
+</body>
+<script>
+    function render(text, title){
+        let input = document.getElementById("input");
+        let elementReference = createElement(input);        
+        let reference = elementReference.querySelector("tbody");
+        let insertTxT = "";
+
+            for(let i = 0; i<text.length; i++){
+                let lineText = text[i];
+                let td1 = "";
+                let td2 = "";
+
+                let position = lineText.indexOf(":");
+                if(position !== -1){
+                    for(let letterPosition = 0; letterPosition<position; letterPosition++){
+                        td1 += lineText[letterPosition]
+                    }
+                    for(let letterPosition = position+2; letterPosition<lineText.length; letterPosition++){
+                        td2 += lineText[letterPosition];
+                    }
+                    insertTxT += "<tr><td>"+td1+"</td><td>"+td2+"</td></tr>";
+                }else{
+                    insertTxT += "<p>"+lineText+"</p>";
+                }
+            }
+            elementReference.querySelector("h3").innerHTML += "<h3>"+title+"<h3>";
+            reference.innerHTML = insertTxT;
+            
+                 
+    }
+    function createElement(referenciaDOM){
+
+        let element = document.createElement("div");
+        element.classList.add("block");
+        let title = document.createElement("h3");
+        title.classList.add("h3");
+        element.appendChild(title);
+        let table = document.createElement("table");
+        table.classList.add("table");/*for bootstrap*/
+        table.classList.add("table-dark");/*for bootstrap*/
+        let thead = document.createElement("thead");
+        let tbody = document.createElement("tbody");
+        let trHead =  document.createElement("tr");
+        let thSintax = document.createElement("th");
+        let thDescription = document.createElement("th");
+
+        thSintax.appendChild(document.createTextNode("Sintaxe"));
+        thDescription.appendChild(document.createTextNode("Descrição"));
+
+        trHead.appendChild(thSintax);
+        trHead.appendChild(thDescription);
+
+        thead.appendChild(trHead);
+
+        table.appendChild(thead);
+        table.appendChild(tbody);
+
+        element.appendChild(table);
+
+        referenciaDOM.appendChild(element);
+
+        let lastReference = document.getElementsByClassName("block").length-1;
+        return document.getElementsByClassName("block")[lastReference];
+    }
+
+    let titulo = "Descrição referente aos metodos Array";
+    let metodosArray = [
+        "Array.push() : inclui um item no fim da lista",
+        "Array.pop() : remove um item no fim da lista",
+        "Array.shift() : remove um item no inicio da lista",
+        "Array.unshift() : adiciona um item no inicio da lista",
+        "Array.length() : mede o tamanho da array",
+        "Array.indexOf() : localiza a posição de um item na lista",
+        "Array.Concat() : Concatena uma array com outra",
+        "Array.isArray() : Verifica se é um array ou não",
+        "Array.reverse() : Inverte a ordem da Array",
+        "Array.slice() : Seleciona itens especificos e retorna nova array",
+        "Array.toString() : Transforma uma array em String",
+        "Array.sort() : Seleciona um elemento aleatorio dentro da Array",
+        "Array.splice() : Adiciona e Remove elementos de uma Array"
+   ];
+   render(metodosArray, titulo);
+
+   
+
+ 
+</script>
+</html>
