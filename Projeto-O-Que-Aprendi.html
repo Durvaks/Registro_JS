@@ -54,7 +54,7 @@
 <body>
     <header>
         <h1>JavaScript</h1>
-        <h3>Historico de comandos JavaScript</h3>
+        <h3>Registro de comandos JavaScript</h3>
         <nav>
             <input id="js_button" class="nav_button" type="button" value="JavaScript">
             <input id="react_button" class="nav_button" type="button" value="React">
@@ -137,7 +137,7 @@
         document.getElementById("input").innerHTML = "";
     }
 
-    let titulo = "Metodos conhecidos para <strong>Arrays</strong>";
+    let tituloArray = "Metodos <strong>Array</strong>";
     let metodosArray = [
         "Array.push() : inclui um item no fim da lista",
         "Array.pop() : remove um item no fim da lista",
@@ -163,7 +163,7 @@
         "Array.reduceRight() :  aplica à uma função um acumulador e cada valor do array (da direita para esquerda) é reduzido para um valor único"
    ];
 
-   let titleAboutString = "Metodos Conhecidos para <strong>Strings</strong>";
+    let titleAboutString = "Metodos <strong>Strings</strong>";
     let aboutString = [
         "String.Length() : Contem o comprimento da String",
         "String.replace() :  retorna uma nova string com algumas ou todas as correspondências de um padrão substituídas por um determinado caractere",
@@ -176,20 +176,31 @@
         "String.toUpperCase() : retorna o valor da string que foi chamada convertido para maiúsculo.",
         "String.valueOf() : retorna o valor primitivo de um objeto String."
     ];
+    
+    let titleMath = "Metodos <strong>Math</strong>";
+    let aboutMath =[
+       " : ",
+       " : ",
+       " : ",
+     ]
+    
    
-   let tituloReact = "Iniciante React";
+    let tituloReact = "React";
     let react = [
      "Criar novo projeto : No terminal, npx create-react-app nome-proj",
      "Acessar pasta do projeto : cd my-first-app",
      "Abrir no vs-code : code .",
      "no terminal do vs : npm star (inicia o servidor de desenvolvimento"
    ];
+   
+   
 
    /*About JavaScript*/
    document.getElementById("js_button").addEventListener("click", () => {
         clear();
-        render(metodosArray, titulo);
+        render(metodosArray, tituloArray);
         render(aboutString, titleAboutString);
+        render(aboutMath, titleMath);
    })
    /*about React*/
    document.getElementById("react_button").addEventListener("click", () => {
