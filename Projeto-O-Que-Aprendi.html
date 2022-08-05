@@ -19,6 +19,26 @@
             margin: auto;
             background-color: rgba(221, 221, 221, 0.568);
         }
+        nav{
+            display: flex;
+            align-content:space-between;
+            background-color: rgb(0, 1, 19);
+            margin: 0 0 10px 0;            
+        }
+        .nav_button{
+            display: block;
+            width: 100%;
+            height: 50px;
+            margin: 10px;
+            font-size: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: bolder;
+            transition: .5s;
+        }
+        .nav_button:hover, .nav_button:focus{
+            background-color: hsl(171, 100%, 41%);
+            color: white;
+        }
         @media screen and (max-width: 360px){
             section table{
             font-size: 10px;
@@ -35,10 +55,14 @@
     <header>
         <h1>JavaScript</h1>
         <h3>Historico de comandos JavaScript</h3>
+        <nav>
+            <input id="js_button" class="nav_button" type="button" value="JavaScript">
+            <input id="react_button" class="nav_button" type="button" value="React">
+        </nav>
     </header>
+
     <section>
         <div class="container">
-
             <div id="input" class="container"></div>
         </div>        
     </section>
@@ -109,8 +133,11 @@
         let lastReference = document.getElementsByClassName("block").length-1;
         return document.getElementsByClassName("block")[lastReference];
     }
+    function clear(){
+        document.getElementById("input").innerHTML = "";
+    }
 
-    let titulo = "Descrição referente aos metodos Array";
+    let titulo = "Metodos conhecidos para <strong>Arrays</strong>";
     let metodosArray = [
         "Array.push() : inclui um item no fim da lista",
         "Array.pop() : remove um item no fim da lista",
@@ -124,20 +151,52 @@
         "Array.slice() : Seleciona itens especificos e retorna nova array",
         "Array.toString() : Transforma uma array em String",
         "Array.sort() : Seleciona um elemento aleatorio dentro da Array",
-        "Array.splice() : Adiciona e Remove elementos de uma Array"
+        "Array.splice() : Adiciona e Remove elementos de uma Array",
+        "Array.every() : Função que testa cada elemento",
+        "Array.filter() : cria um novo array com todos os elementos que passaram no teste implementado pela função fornecida",
+        "Array.forEach() : executa uma dada função em cada elemento de um array",
+        "Array.lastIndexOf() : retorna o ultimo índice que um certo elemento pode ser encontrado",
+        "Array.map() : invoca a função callback passada por argumento para cada elemento do Array e devolve um novo Array como resultado",
+        "Array.some() : testa se ao menos um dos elementos no array passa no teste",
+        "Array.join() : junta todos os elementos de um array em uma string e retorna esta string.",
+        "Array.reduce() : executa uma função reducer (fornecida por você) para cada elemento do array, resultando num único valor de retorno.",
+        "Array.reduceRight() :  aplica à uma função um acumulador e cada valor do array (da direita para esquerda) é reduzido para um valor único"
    ];
-   render(metodosArray, titulo);
+
+   let titleAboutString = "Metodos Conhecidos para <strong>Strings</strong>";
+    let aboutString = [
+        "String.Length() : Contem o comprimento da String",
+        "String.replace() :  retorna uma nova string com algumas ou todas as correspondências de um padrão substituídas por um determinado caractere",
+        "String.indexOf() : retorna o índice da primeira ocorrência do valor fornecido",
+        "String.lastIndexOf() : retorna o índice da ultima ocorrência do valor fornecido",
+        "String.slice() : extrai uma parte de uma string e a retorna como uma nova string, sem modificar a string original.",
+        "String.substring() : retorna a parte da string entre os índices inicial e final, ou até o final da string",
+        "String.split() : divide uma String em uma lista ordenada de substrings, coloca essas substrings em um array e retorna o array",
+        "String.toLowerCase() : retorna o valor da string que foi chamada convertido para minúsculo.",
+        "String.toUpperCase() : retorna o valor da string que foi chamada convertido para maiúsculo.",
+        "String.valueOf() : retorna o valor primitivo de um objeto String."
+    ];
    
-   let tituloReact = "Iniciante React"
+   let tituloReact = "Iniciante React";
     let react = [
      "Criar novo projeto : No terminal, npx create-react-app nome-proj",
      "Acessar pasta do projeto : cd my-first-app",
      "Abrir no vs-code : code .",
      "no terminal do vs : npm star (inicia o servidor de desenvolvimento"
    ];
-   render(react, tituloReact);
 
-   
+   /*About JavaScript*/
+   document.getElementById("js_button").addEventListener("click", () => {
+        clear();
+        render(metodosArray, titulo);
+        render(aboutString, titleAboutString);
+   })
+   /*about React*/
+   document.getElementById("react_button").addEventListener("click", () => {
+        clear();
+        render(react, tituloReact);
+   })
+
 
  
 </script>
