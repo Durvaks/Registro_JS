@@ -1,0 +1,105 @@
+header{
+    background-image: linear-gradient(#002630, #005368df);
+    color: white;
+    text-align: center;
+}
+
+#main-title{
+    font-size: 20px;
+    text-shadow: 0 4px 12px black;
+}
+#main-subtitle{
+    font-size: 10px;
+    padding: 5px;
+    color: rgb(139,139,139);
+    letter-spacing: .1em;
+}
+section{
+    margin: auto;
+    background-color: rgba(221, 221, 221, 0.568);
+}
+nav{
+    display: flex;
+    align-content:space-between;
+    background-color: rgb(0, 1, 19);
+    margin: 0 0 10px 0;            
+}
+.nav_button{
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin: 10px;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+    transition: .5s;
+}
+.nav_button:hover, .nav_button:focus{
+    background-color: hsl(171, 100%, 41%);
+    color: white;
+}
+section{
+    max-width: 1000px;
+}
+section .title{
+    font-size: 15px;
+    padding: 5px;  
+}
+.main_article .title{
+    font-size: 15px;
+    padding: 5px;  
+}
+.main_article .title{
+    font-size: 15px;
+    padding: 5px;
+    font-weight: bold;
+}
+.main_article .main_p{
+    font-size: 12px;
+    letter-spacing: .1em;
+}
+.main_article .main_img{
+    width: 100%;
+}
+
+
+@media screen and (min-width: 361px){
+    .main_article table{
+    font-size: 10px;
+    }
+    .main_article .title{
+        font-size: 20px;
+        padding: 5px;  
+    }
+    .main_article .main_img{
+        width: 50%;
+    }
+    .main_article .main_p{
+        font-size: 15px;
+        padding: 20px 25px;
+    }
+    #main-title{
+        font-size: 20px;
+        text-shadow: 0 4px 12px black;
+        padding: 10px;
+    }
+    #main-subtitle{
+        font-size: 10px;
+        padding: 5px;
+        color: rgb(139,139,139);
+        letter-spacing: .1em;
+    }
+
+}
+.block{
+box-shadow: 0 0 5px 5px rgba(128, 128, 128, 0.527);
+padding: 5px 0;
+margin-bottom: 15px;
+}
+footer{
+  padding: 20px;
+  text-align: center;
+  font-family: Arial;
+  letter-spacing: .2em;
+  font-size: 12px;
+}
