@@ -31,13 +31,78 @@
     <section>
         <div class="container">
           <article class="main_article">
+            
             <h1 class="title">Ciclo de Vida de Desenvolvimento de Sistemas (CVDS)</h1>
-            <p class="main_p">
-              possui cinco fases principais em qualquer um dos modelos de desenvolvimento adotados.
-              A seguir temos essas fases representadas em um diagrama:
-            </p>
-            <img class="main_img" src="/img/CDDS.PNG" alt="" srcset="">
+            <p>possui cinco fases principais em qualquer um dos modelos de desenvolvimento adotados.A seguir temos essas fases representadas em um diagrama:</p>
+            <img class="img" src="/img/Ciclo.png" alt="Ciclo de Desenvolvimento de Sistemas" srcset="">
+            
+            <div>
+            <h2>1- Modelo em Cascata</h2>
+            <img class="img float_right" src="/img/cascade.png" alt="cascade" srcset="">
+            <p>Divide todo o processo de desenvolvimento de software em fases separadas e sequenciais onde o desenvolvimento movimenta-se somente num sentido, de modo que as etapas não podem ser repetidas.</p>
+            <p>Somente quando uma fase estiver concluída a outra fase poderá iniciar.</p>
+            <p>Neste modelo nenhum componente do sistema será entregue até a proximidade final do projeto.</p>
+            </div>	
+            
+            <h2>2- Modelo Espiral</h2>
+            <img class="img float_right" src="/img/espiral.png" alt="espiral" srcset="">
+            <p>É uma combinação dos modelos interativo e sequencial com ênfase na análise de riscos e no planejamento.</p>
+            <p>O sistema de software é entregue em versões, onde cada versão passa por cada etapa do ciclo de desenvolvimento. Dessa forma o produto final é entregue rapidamente.</p>
+            <p>Determina um ciclo de atividades dividido em 4 estágios:</p>
+              <ol>
+                <li>Determina objetivos, soluções alternativas e restrições.</li>
+                <li>Analisa os riscos do estágio anterior</li>
+                <li>Atividades da fase de desenvolvimento: Design, Especificação, Codificação e verificação.</li>
+                <li>Revisão das etapas anteriores e o planejamento da próxima fase</li>
+              </ol>
 
+            <h2>3- Modelo Incremental</h2>
+            <img class="img float_right" src="/img/incremental.png" alt="incremental" srcset="">          
+            <p>Desenvolve várias partes do sistema em paralelo, e as integra quando estiverem completas.</p>
+            <p>O desenvolvimento é dividido em 'incrementos' que produzem o sistema de forma incremental até a sua versão final.</p>
+            <p>Cada incremento passa por todo o ciclo de desenvolvimento do software produzinto um sistema funcional embora não atenda todos os  requisitos.</p>
+
+            <h2>4- Prototipagem</h2>
+            <img class="img float_right" src="/img/Prototipagem.png" alt="Prototipagem" srcset="">
+            <p>Constrói um protótipo do produto de software para mostrar suas funcionalidades de forma limitada.</p>
+            <p>É usado para permitir que os usuários avaliem propostas de desenvolvedores testando-as antes da implementação final do produto.</p>
+            <p>Ajuda a compreender as exigências especificas do usuário que não podem ter sido consideradas pelos desenvolvedores durante a fase de concepção do produto.</p>
+            <p>Nota: Protótipo é um produto de trabalho da fase de testes e/ou planejamento de um projeto.</p>
+
+            <h2>5- Metodologias Ágeis</h2>            
+            <img class="img float_right" src="/img/AGEIS.png" alt="Metodologias Ageis" srcset="">
+            <p>Utiliza uma abordagem de planejamento incremental e muito iterativa.</p>
+            <p>Cada iteração é um mini-projeto, que norm<strong>ALM</strong>ente dura de 1 a 4 semanas, e inclui todas as fases para implementá-lo como levantamento de recursos e requisitos, projeto, desenvolvimento de código, testes e documentação.</p>
+            <p>Ao final de cada iteração deve haver uma entrega ao cliente, que inclua um conjunto de novas funcionalidades, uma nova versão de software.</p>            
+            <p>Após essa entrega há um novo processo de comunicação com o cliente e então são definidas quais deverão ser as novas entregas.</p>
+
+            <h1 class="subtitle">O gerenciamento do ciclo de vida da aplicação - <strong>ALM</strong> (Application Lifecycle Management)</h1>
+            <img class="img float_left" src="/img/espiral.png" alt="espiral" srcset="">
+            <p>O <strong>ALM</strong> refere-se à capacidade de integrar, coordenar e controlar as diversas fases de desenvolvimento de um software até a entrega. Assim gerenciar o ciclo de vidas das aplicações é fazer a integração entre a necessidade de atender o negócio e a engenharia de software.</p>
+            <p>Assim a <strong>ALM</strong> representa um único processo que abrange todos elementos envolvidos no processo de desenvolvimento de software, oferecendo um trabalho contínuo e sempre com novos recursos.</p>
+            <p>O Application Lifecycle Management (<strong>ALM</strong>) atua  no acompanhamento de todo o processo de vida útil de uma aplicação, seja a construção de novos softwares ou alterações nos softwares já existentes, integrando todas as fases da engenharia de software – como análise de requisitos, modelagem de arquitetura, desenvolvimento de código, gerenciamento de mudanças, gerenciamento de testes e gerenciamento de versões de produtos realizados – com as necessidades do mercado.</p>
+            <p>Podemos dividir a <strong>ALM</strong> em 3 áreas distintas:</p>
+            <ol>
+              <li><strong>Governança -</strong>A governança engloba toda a tomada de decisões e gerenciamento de projetos em toda a empresa.</li>
+              <li><strong>Desenvolvimento - </strong>O desenvolvimento é definido como o processo de criação da aplicação real.</li>
+              <li><strong>Operações - </strong> operação é o trabalho necessário para executar e gerenciar o aplicativo. Começa pouco antes implantação e depois é executado continuamente</li>
+            </ol>
+
+            <p>É comum equiparar <strong>ALM</strong> com o CVDS pois o <strong>ALM</strong> é construído em torno das seguintes fases principais do ciclo de vida de desenvolvimento de software(CVDS):</p>
+            <ul>
+              <li>Fase de requisitos</li>
+              <li>Fase de projeto
+              <li>Fase de implementação
+              <li>Fase de testes
+              <li>Fase de produção
+            </ul>
+
+            <p>Qualquer ciclo de vida de desenvolvimento de software é iniciado somente após a aprovação do caso de negócios.</p>
+            <p>Com a evolução da indústria de TI, as metodologias de desenvolvimento de software foram transformadas em vários níveis. A mudança principal se concentra em iterações mais curtas e múltiplas, em vez de um grande e completo ciclo único.</p>
+            <p>Como resultado, este processo moderno exibe o desenvolvimento de software como uma série de iterações. Cada subprocesso/iteração, contém sua própria definição de requisitos, design, desenvolvimento, qualidade e atividades de teste de segurança.</p>
+            <p>Esta solução não é a bala de prata todos os projetos de software. No entanto, esta abordagem iterativa é ainda melhor do que o método de execução tradicional.</p>
+
+            
           </article>          
         </div>
     </section>

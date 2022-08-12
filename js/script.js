@@ -1,7 +1,9 @@
-window.addEventListener('load', () => {
-
+window.addEventListener('load', () => {    
+    
+    /*Main footer*/
     document.querySelector("footer").innerHTML = `<p>Desenvolvido por: <a href="https://github.com/Durvaks">Renan Brandão</a></p>`
 
+    /*Main Menu*/
     document.getElementById("nav_list").innerHTML=`
         <li class="nav-item">
             <a class="nav-link"  href="index.html">Principal</a>
@@ -83,8 +85,13 @@ window.addEventListener('load', () => {
     function clear(){
         document.getElementById("input").innerHTML = "";
     }
+    function render(component){
+        document.getElementById("input").innerHTML = component;
+    }
 
-    let tituloArray = "Metodos <strong>Array</strong>";
+
+    /*About JavaScript*/
+
     let metodosArray = [
         "Array.push() : inclui um item no fim da lista",
         "Array.pop() : remove um item no fim da lista",
@@ -110,7 +117,27 @@ window.addEventListener('load', () => {
         "Array.reduceRight() :  aplica à uma função um acumulador e cada valor do array (da direita para esquerda) é reduzido para um valor único"
     ];
 
-    let titleAboutString = "Metodos <strong>Strings</strong>";
+    let ajusteDeTamanhoDeTexto = `
+        <div class="control_inputs">
+        <label for="textInput">Insira o limite de palavras</label>
+        <input id="textInput" type="text" name="textInput">
+        <input id="buttonInput" type="button" value="Alterar">
+        </div>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe ipsum fugiat in rem a nesciunt expedita nostrum quas ducimus dolor ipsa eius alias autem animi, qui culpa hic vel! Dolore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe ipsum fugiat in rem a nesciunt expedita nostrum quas ducimus dolor ipsa eius alias autem animi, qui culpa hic vel! Dolore.</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe ipsum fugiat in rem a nesciunt expedita nostrum quas ducimus dolor ipsa eius alias autem animi, qui culpa hic vel! Dolore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe ipsum fugiat in rem a nesciunt expedita nostrum quas ducimus dolor ipsa eius alias autem animi, qui culpa hic vel! Dolore.</p>
+        </div>`;
+
+    let calculactor =`
+        <div id="calculadora">
+        <input type="text" name="" id="" class="display_calculactor" value="0">
+        <button class="button_calculactor">AC</button><button class="button_calculactor" >C</button><button class="button_calculactor">%</button><button class="button_calculactor" >/</button>
+        <button class="button_calculactor">7</button><button class="button_calculactor">8</button><button class="button_calculactor">9</button><button class="button_calculactor" >x</button>
+        <button class="button_calculactor">4</button><button class="button_calculactor">5</button><button class="button_calculactor">6</button><button class="button_calculactor" >-</button>
+        <button class="button_calculactor">1</button><button class="button_calculactor">2</button><button class="button_calculactor">3</button><button class="button_calculactor" class="sum_button">+</button>
+        <button class="button_calculactor">0</button><button class="button_calculactor">.</button><button class="button_calculactor">=</button>
+        </div>
+    `
+
     let aboutString = [
         "String.Length() : Contem o comprimento da String",
         "String.replace() :  retorna uma nova string com algumas ou todas as correspondências de um padrão substituídas por um determinado caractere",
@@ -124,49 +151,130 @@ window.addEventListener('load', () => {
         "String.valueOf() : retorna o valor primitivo de um objeto String."
     ];
 
-    let titleMath = "Metodos <strong>Math</strong>";
     let aboutMath =[
     " : ",
     " : ",
     " : ",
     ]
 
-
-    let tituloReact = "React";
-    let react = [
-    "Criar novo projeto : No terminal, npx create-react-app nome-proj",
-    "Acessar pasta do projeto : cd my-first-app",
-    "Abrir no vs-code : code .",
-    "no terminal do vs : npm star (inicia o servidor de desenvolvimento"
-    ];
-
-    /*About JavaScript*/
     document.getElementById("array_button").addEventListener("click", () => {
         clear();
-        render_table(metodosArray, tituloArray);
+        render_table(metodosArray, "Metodos <strong>Array</strong>");
     })
     document.getElementById("string_button").addEventListener("click", () => {
         clear();
-        render_table(aboutString, titleAboutString);
+        render_table(aboutString, "Metodos <strong>Strings</strong>");
     })
     document.getElementById("math_button").addEventListener("click", () => {
         clear();
-        render_table(aboutMath, titleMath);
+        render_table(aboutMath, "Metodos <strong>Math</strong>");
     })
-    document.getElementById("js_button").addEventListener("click", () => {
+    document.getElementById("length_text").addEventListener("click", () => {
         clear();
-        render_table(aboutMath, titleMath);
-        render_table(aboutString, titleAboutString);
-        render_table(metodosArray, tituloArray);
+        render(ajusteDeTamanhoDeTexto);        
+        script_adjust_text();
     })
-
-
-        
-        
+    document.getElementById("calculactor").addEventListener("click", () => {
+        clear();
+        render(calculactor);
+    })
 
     /*about React*/
+    let react = [
+        "Criar novo projeto : No terminal, npx create-react-app nome-proj",
+        "Acessar pasta do projeto : cd my-first-app",
+        "Abrir no vs-code : code .",
+        "no terminal do vs : npm star (inicia o servidor de desenvolvimento"
+        ];
+
     document.getElementById("react_button").addEventListener("click", () => {
         clear();
-        render_table(react, tituloReact);
+        render_table(react, "React");
     })
   });
+
+  
+    function script_adjust_text(){/*Função para ajuste dos textos*/
+    let paragrafos = document.querySelectorAll("p");
+    let buttonInput = document.getElementById("buttonInput");
+    let qtdWords = document.getElementById("textInput");
+    let historicParagrafs = [];
+    
+    buttonInput.addEventListener("click", () =>{
+        adjustText(paragrafos);
+    });
+
+    function adjustText(paragraf){
+        if(!isNaN(qtdWords.value)){
+            var arr;
+            
+            for(let i = 0; i<paragraf.length; i++){
+
+                if(historicParagrafs[i] == undefined){
+                    historicParagrafs[i]=paragraf[i].textContent;                        
+                    arr = historicParagrafs[i].split(" ");
+                    paragraf[i].textContent = arr.slice(0,qtdWords.value).join(" ")+"...";
+                }else{
+                    console.log(historicParagrafs[i])
+                    arr = historicParagrafs[i].split(" ");
+                    paragraf[i].textContent = arr.slice(0,qtdWords.value).join(" ")+"...";
+                }
+            }
+        }
+    }
+    };
+    
+
+    function scriptCalculactor(){
+        let display = document.querySelector(".display_calculactor")
+        let valor1 = 0
+        let inival = 0
+        let typedef = 0
+
+        let buttons = document.querySelectorAll(".button_calculactor");
+
+        
+        
+
+        function limp(){
+            display.value = 0
+       }
+        function but(val){
+            if (Number(display.value) === inival) {
+                display.value = ""
+            }
+            display.value = display.value + val
+       }
+       function calc(key){
+            valor1 = display.value
+            display.value = 0
+            typedef = key
+       }
+       function equal(){
+           if (typedef == 1) {
+            console.log(typedef)
+            display.value = Number(valor1) * Number(display.value)
+           }
+           if (typedef == 2) {
+            console.log(typedef)
+            display.value = Number(valor1) - Number(display.value)
+           }
+           if (typedef == 3) {
+            console.log(typedef)
+            display.value = Number(valor1) + Number(display.value)
+           }
+           if (typedef == 4) {
+            console.log(typedef)
+            display.value = Number(valor1) / Number(display.value)
+           }
+            valor1 = 0
+            typedef = 0
+            inival = Number(display.value)
+       }
+    };
+
+    
+
+
+
+
