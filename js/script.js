@@ -86,7 +86,12 @@ window.addEventListener('load', () => {
         document.getElementById("input").innerHTML = "";
     }
     function render(component){
+        if(typeof(component) == "string"){
         document.getElementById("input").innerHTML = component;
+        }else{
+            document.getElementById("input").appendChild(component);
+        }
+
     }
 
 
@@ -127,41 +132,6 @@ window.addEventListener('load', () => {
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe ipsum fugiat in rem a nesciunt expedita nostrum quas ducimus dolor ipsa eius alias autem animi, qui culpa hic vel! Dolore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe ipsum fugiat in rem a nesciunt expedita nostrum quas ducimus dolor ipsa eius alias autem animi, qui culpa hic vel! Dolore.</p>
         </div>`;
 
-    function calculactorGeneractor(){   
-        /*Gerando a calculadora*/     
-        let calculactor = document.createElement("div");
-        calculactor.id = "calculadora";
-        /*Gerando o Display e inserindo na calculadora*/
-        let display = document.createElement("input");
-        display.classList.add("display_calculactor");
-        display.value = 0;
-        calculactor.appendChild(display);
-        /*buttons*/
-        let buttonList = ["AC","C","%","/","7","8","9","x","4","5","6","-","1","2","3","+","0",".","="];
-            buttonList.forEach(element => {
-                let button = document.createElement("button");
-                button.classList.add("button_calculactor");
-                button.textContent = element.toUpperCase();
-                    if(element == "+"){
-                        button.classList.add("sum_button");/* <== para o grid do layout*/
-                        button.addEventListener("click", ()=> tipoDeCalculo = "soma");
-                    }
-                    if(element == "-"){button.addEventListener("click", ()=> tipoDeCalculo = "subtract")};
-                    if(element == "/"){button.addEventListener("click", ()=> tipoDeCalculo = "division")};
-                    if(element == "x"){button.addEventListener("click", ()=> tipoDeCalculo = "multiply")};
-                    if(element == "%"){button.addEventListener("click", ()=> tipoDeCalculo = "percent")};
-                    if(!isNaN(element)){}
-
-                calculactor.appendChild(button);
-            });        
-        return calculactor
-    }
-
-    /*Para a Calculadora*/
-    let valorBase = 0;
-    let tipoDeCalculo = "";
-
-    /*Fim das funções de calculadora */
 
 
     let aboutString = [
@@ -183,16 +153,10 @@ window.addEventListener('load', () => {
     " : ",
     ]
 
-    document.getElementById("array_button").addEventListener("click", () => {
+    document.getElementById("metodos_button").addEventListener("click", () => {
         clear();
-        render_table(metodosArray, "Metodos <strong>Array</strong>");
-    })
-    document.getElementById("string_button").addEventListener("click", () => {
-        clear();
+        render_table(metodosArray, "Metodos <strong>Array</strong>");        
         render_table(aboutString, "Metodos <strong>Strings</strong>");
-    })
-    document.getElementById("math_button").addEventListener("click", () => {
-        clear();
         render_table(aboutMath, "Metodos <strong>Math</strong>");
     })
     document.getElementById("length_text").addEventListener("click", () => {
@@ -200,6 +164,7 @@ window.addEventListener('load', () => {
         render(ajusteDeTamanhoDeTexto);        
         script_adjust_text();
     })
+    /*calculactor*/
     document.getElementById("calculactor").addEventListener("click", () => {
         clear();
         render(calculactorGeneractor());
