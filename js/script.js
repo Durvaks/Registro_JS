@@ -127,16 +127,42 @@ window.addEventListener('load', () => {
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe ipsum fugiat in rem a nesciunt expedita nostrum quas ducimus dolor ipsa eius alias autem animi, qui culpa hic vel! Dolore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe ipsum fugiat in rem a nesciunt expedita nostrum quas ducimus dolor ipsa eius alias autem animi, qui culpa hic vel! Dolore.</p>
         </div>`;
 
-    let calculactor =`
-        <div id="calculadora">
-        <input type="text" name="" id="" class="display_calculactor" value="0">
-        <button class="button_calculactor">AC</button><button class="button_calculactor" >C</button><button class="button_calculactor">%</button><button class="button_calculactor" >/</button>
-        <button class="button_calculactor">7</button><button class="button_calculactor">8</button><button class="button_calculactor">9</button><button class="button_calculactor" >x</button>
-        <button class="button_calculactor">4</button><button class="button_calculactor">5</button><button class="button_calculactor">6</button><button class="button_calculactor" >-</button>
-        <button class="button_calculactor">1</button><button class="button_calculactor">2</button><button class="button_calculactor">3</button><button class="button_calculactor" class="sum_button">+</button>
-        <button class="button_calculactor">0</button><button class="button_calculactor">.</button><button class="button_calculactor">=</button>
-        </div>
-    `
+    function calculactorGeneractor(){   
+        /*Gerando a calculadora*/     
+        let calculactor = document.createElement("div");
+        calculactor.id = "calculadora";
+        /*Gerando o Display e inserindo na calculadora*/
+        let display = document.createElement("input");
+        display.classList.add("display_calculactor");
+        display.value = 0;
+        calculactor.appendChild(display);
+        /*buttons*/
+        let buttonList = ["AC","C","%","/","7","8","9","x","4","5","6","-","1","2","3","+","0",".","="];
+            buttonList.forEach(element => {
+                let button = document.createElement("button");
+                button.classList.add("button_calculactor");
+                button.textContent = element.toUpperCase();
+                    if(element == "+"){
+                        button.classList.add("sum_button");/* <== para o grid do layout*/
+                        button.addEventListener("click", ()=> tipoDeCalculo = "soma");
+                    }
+                    if(element == "-"){button.addEventListener("click", ()=> tipoDeCalculo = "subtract")};
+                    if(element == "/"){button.addEventListener("click", ()=> tipoDeCalculo = "division")};
+                    if(element == "x"){button.addEventListener("click", ()=> tipoDeCalculo = "multiply")};
+                    if(element == "%"){button.addEventListener("click", ()=> tipoDeCalculo = "percent")};
+                    if(!isNaN(element)){}
+
+                calculactor.appendChild(button);
+            });        
+        return calculactor
+    }
+
+    /*Para a Calculadora*/
+    let valorBase = 0;
+    let tipoDeCalculo = "";
+
+    /*Fim das funções de calculadora */
+
 
     let aboutString = [
         "String.Length() : Contem o comprimento da String",
@@ -176,7 +202,7 @@ window.addEventListener('load', () => {
     })
     document.getElementById("calculactor").addEventListener("click", () => {
         clear();
-        render(calculactor);
+        render(calculactorGeneractor());
     })
 
     /*about React*/
@@ -223,58 +249,5 @@ window.addEventListener('load', () => {
         }
     }
     };
-    
-
-    function scriptCalculactor(){
-        let display = document.querySelector(".display_calculactor")
-        let valor1 = 0
-        let inival = 0
-        let typedef = 0
-
-        let buttons = document.querySelectorAll(".button_calculactor");
-
-        
-        
-
-        function limp(){
-            display.value = 0
-       }
-        function but(val){
-            if (Number(display.value) === inival) {
-                display.value = ""
-            }
-            display.value = display.value + val
-       }
-       function calc(key){
-            valor1 = display.value
-            display.value = 0
-            typedef = key
-       }
-       function equal(){
-           if (typedef == 1) {
-            console.log(typedef)
-            display.value = Number(valor1) * Number(display.value)
-           }
-           if (typedef == 2) {
-            console.log(typedef)
-            display.value = Number(valor1) - Number(display.value)
-           }
-           if (typedef == 3) {
-            console.log(typedef)
-            display.value = Number(valor1) + Number(display.value)
-           }
-           if (typedef == 4) {
-            console.log(typedef)
-            display.value = Number(valor1) / Number(display.value)
-           }
-            valor1 = 0
-            typedef = 0
-            inival = Number(display.value)
-       }
-    };
-
-    
-
-
 
 
