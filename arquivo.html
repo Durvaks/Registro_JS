@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+        <title>Um titulo qualquer</title>
+        <style type="text/css" media="all">
+            body{
+        
+                background: rgb(2,0,36);
+                background: -webkit-linear-gradient(rgba(2,0,36,1) 0%, rgba(17,12,85,1) 23%, rgba(61,49,175,1) 57%, rgba(0,212,255,1) 99%);
+                background: -moz-linear-gradient(rgba(2,0,36,1) 0%, rgba(17,12,85,1) 23%, rgba(61,49,175,1) 57%, rgba(0,212,255,1) 99%);
+                background: -o-linear-gradient(rgba(2,0,36,1) 0%, rgba(17,12,85,1) 23%, rgba(61,49,175,1) 57%, rgba(0,212,255,1) 99%);
+                background: linear-gradient(rgba(2,0,36,1) 0%, rgba(17,12,85,1) 23%, rgba(61,49,175,1) 57%, rgba(0,212,255,1) 99%);
+                background-attachment: fixed;
+                background-image: linear-gradient(50deg, transparent 70%, #808080 30%),
+                                  linear-gradient(#1F62CE,#030033);
+                background-size:5px 5px, cover;
+            
+            }
+            header{
+                background: #243133;
+                height: 120px;
+                position: relative;
+                top: -10px;
+                width: 100%;
+                z-index: 1;
+                padding-top: 5px;
+            }
+            #perfil{
+                position: relative;
+                width: 120px;
+                top: 0;
+            }
+            header h1{
+                color: #66FFB2;
+                text-shadow: 2px 2px 5px #132402;
+                position: absolute;
+                top: 10px;
+                left: 150px;
+            }
+            .mainContent{
+                position: absolute;
+                top: 120px;
+            }
+            .form{
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                color: white;
+                border: 2px solid black;
+            }
+            .form input{
+                width: 100%;
+            }
+            .form #descricao{
+                height: 100px;
+            }
+            
+            #paginas{
+                list-style: none;
+                display: flex;
+            }
+            .page{
+                margin: 5px;
+            }
+            #hexagono {
+               width: 120px;
+               height: 100px;
+               background-color: red;
+               position: relative;
+               overflow: hidden;
+               margin: 10px;
+               
+            }
+            #hexagono:before {
+               content: "";
+               position: absolute;
+               bottom: 0px;
+               right: 0px;
+               width: 0;
+               height: 0;
+               border-left: 25px solid  transparent;
+               border-top: 50px solid  #243133;
+               border-bottom: 50px solid #243133;
+               z-index: 1;
+            }
+            #hexagono:after {
+               content: "";
+               position: absolute;
+               bottom: 0;
+               left: 0;
+               width: 0;
+               height: 0;
+               border-top: 50px solid #243133;
+               border-right: 25px solid transparent;
+               border-bottom: 50px solid #243133;
+               z-index: 1;
+            }
+        </style>
+        
+
+    </head>
+    <body>
+        
+        <header>
+            <div id="hexagono">
+            <img id="perfil" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBISEhISEhIKEhIKDxkSDwoKDx8JCggMJSEnJyUhJCQpLjwzKSw4LSQkKzo0ODM0Nzc3KDE8Tjs1TTw1NjQBDAwMEA8QGBISGTEdGR4/MTExMTQxNTE0NDE2PzQ/MT80NDExND8/MTE0Pz8xMTExMTE0MTExMTE0MTE0NDExNP/AABEIAMgAyAMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAFAAIDBAYBB//EAEEQAAIBAgQEAwYDBwIDCQAAAAECAAMRBBIhMQUGQVEiYXETMkKBkaFSsfAHFCOSwdHhgvEzU3IVFiQ0Q2KissL/xAAaAQACAwEBAAAAAAAAAAAAAAABAgADBAUG/8QAIxEAAgICAgICAwEAAAAAAAAAAAECEQMhEjFBUQQiEzJhcf/aAAwDAQACEQMRAD8A8qp0wFJ7bzcfs8whCu5GlQ5RfZgJkOG4N6zimt7H3m6Is9g5fw9OhTRTYLSS57wsWzz/APaAgGJUDpTAPrMtlhnmjF+2xdRtwrZR1EHUaRZlUbuQB6yLQ3ZoaaXpoTuUB+0j2l+sgUAD4VAlR0ijEUbOtpKtXHU1NidfLWQBOTGkRlKsr6qQfzEhxmKyiw1Y/MKJCHcRiFTc69FG5g449iToLfhkL5iSzXN+saw1BH+DCAmGMqX6W/DHNin3sLSEkDvr8pE1UjzEgS8mKB0It5jUSyBBCVBL+GrXFr6j7iABYtOWnLzhMhBGcJnIrRgHCZwmIxpMhBXinDO3hIciiMUBD0Dl3g4ooLi7vqW6s0h5p4z7JDTQ+I726tDHFcWuHpliQGK+EdUWeYY3EtVqFzfU6DsIRVshUkm53OpPUmHOX8JdjVYaU9Ev8TShwzAtWcKNFGrv0VZrKiLTQIosFFosmWRRTrPcmVy+9/8AeSOZSxeICKWPT7mBBZQ4vjcoKg+J/wD4iAc1994+vULsWPU/QSO0YUnoOym6kj06ywamtzqZXw6HfoPzmr5e5eNQh6g8O6ofiHnFlJLY8IOTpArBcOrVvdUhT1I3hrD8pVCNSPQ9JusLw5UAAA0l5KAEpc2+jbHBFLZg05QHxsfQDSdblimBa1/Mjebp6AMhfCjtF5sb8cPR5txDlhNShKn6qTM7XoPSazC1tm6Ges4zBjp/cTN8T4cHBBHz6qY8ZvyU5MC7Rk8PWzDzG/nJLyniqDUqljcW2PRhJqdQMLj5jsZcZGq0ya84TGAxwaQU7GkxEzkYhwxRGK8hBGKcigIHeZ+KGtUKg+FD8iYFo0S7BFF2c29J09zufqTNVy3wvKvtHHiqDQHdFhboEUXOG4JaNMAbnVm6s0q4t9YQx9awsIGqvELCKo8D8Ww9RwCouu9hvDeGoF2t0XU+ku1ML5TThwclbMHyPmLHJRXZ50ykaEEeR0MSibLF8MR9117jQwLX4OUYEG65uujCCeGUdluL5MJ68l/lzhhqOtx4aerdmnpODw+UAATNcEKYeiHf3quoUbsJdTmJwfDTDW65rCYpXJnVxOMY/wBNZTomT+zgXhXMgqWD07a2OVrsJqQisARsReVuNF6kmDzSlerSIhHF11pja5/rMfxHmCur2WnTsO4OohUbA5JF7E3g3EUQb6SD/t8uPEqBuuvhaLDcURzlPhboDs0PFoCmmZfmHBAg6bdeomTUlG9PoRPR+N4cMpI7TzvFjxHyMug9GTPGpWXlcEA94ryvhjdfSTRzOdzThaOFNjsrn0W8kXB1TtTq/wAhAhoVyS8kF5y8uLwusf8A02/1ELJF4LW6imP+prw8X6FeWC7YOvFCy8CqdXpD0u1opOEvQv58fsm4Dw41qmYjwUz8nabKoQq2GgAnOF4BaNNUA2Gp6kyLiTixAlcnZcgPi625J0g9qwbbX85XxuLDMVuLKbepjuDUWqYlAl8tMgsd1yiWQjbSEyTUIuT8Gs4ZgvZ0xf3n1b1k70JeKRpSdOKUVSPMznKc3J+QVUwsB8bXIEH4j9ZrmpzOcw0S1WjTHxHbzJAlWd/Vm74W8sUaPgXBEdBUqi9gFSmfdVRDB4LRYe7RUdsuYyVL06QVBdlSyg6KWgTimDxxVHSpUdiTnw1Bv3WmNrAHfvrOP2z1l8Y9BNOG06Z0CEfjXQqYaoN4fT7TPcLo1xTArM5fMbqxFSydNRDqghf1tFeh47VlTGVASb9JT/cFqakIF6FhmLR1ZSzH1ufOWxRDggu/u+FKZ9kA3md4UrJJ0roovwumu3smH4WQLKWO4FRqLdUCMPipnKwMF0OFcRNTWpUpol87iscQtQW08JJmg4YtUUyKuUsD76DKrr3haryLF2toznsnFNqdTVqembo69559xTC5Xfyb6z1jitKwJHWeZ8c/4jADb7x4dlGfpEPLy02cpUTMGFwb2yGa1MLTX3adIeeW5mLwFQpURhpZtexWbkNp6zXCqOP8lO9M5fsPoLThJnSfWNY+v1llmSmcN5wgxE/q940n0ksDRw/KKK/pFJYvE0uIcKpJmR4rxEeIA6/lC3M+MyjIDuNbdpgXrtc31zTKo+TtWSIVLHN8R0PQGeicD4elGmtgpZxmNQa5zPLmaeicmYlnw2Vrn2TlUPvHLYG004Wk2YPnxlKCo0NpwiTJh3OyVP5ZIcFUtcow8zoJoc17OXHBP0VLSiuD9pjKLEXFNC3lmB0htOHVG2W/9JYw2AZKi5xY5dO9pRnmnF0zo/AwyjmTaCNKnptHjDk+XpvLdOnpJQonMPToHjDgEC2/1MnxNMhbgSPEYqmjqGYAsbLfRS3rCFesMhva2X7SIjbVGZpDx+phM4QEXG8D4LidCu7rTLE0Wyl8pFJm7AzS4dgVHpAFg8USOkbWGm0JtTlXEJpIAzvEEupE8w5kpFKh856hxUhQTMRicKuIxSqfdUXe3aPF07Kc0eSpGKv1H+0NcH4sVtTckqdEcnxUz/aaPi3BKVOhWqIqiybe8AZhFEvjK9oxZsKWmbi/6vGlvSDOE4rOmUnxU9NdSywgfX7aGXcjnShToRb0iLekZf8AVpy8NiOI7NFGaxSWDiQc0Yj+JvutvQzLPci47y7xbEGpUY36ysq2AEqSOlZGaOxBvnHaxU9p6/ybgUT2KhVGZQXCiwZramed8tcPWtXUOyqqeI5tnM9c4WtKk6N7S+TysJdFVFmLPPlJR8I1yYdR0jzRU9BB78aoge+PzuJw8fo/ilVMsTQTWkBsBAvGqirVpjQMyk26lYUwOLWuCUJsm7fCT2mD5p4qP3yllP8Aw0sSPia8SS00aML+0Wa9HFpITpA2BxgdRYg/0lLivMPs6hpqMxX5AmZqdnVckgnjWXZgpWpoyMLqZFWZitvDlt7+bdYER8TiGF0IU/6FWEKfDsVrqlrEBc1xaSg8n6HYOiqqUpBEUtmbKNXaGsOLC3aZhMPiaK3y3sfhOfSVsRzJUpmz07fksNWBypbNoXtKmLqi0ocP4n7WnmNrjW66qyxuNxAAJJ6fOLu6CpKrMzzNiyq+pgnljBtUz1TcHNYEdZX5nxWZra2XSaHk+gzYUZCozMSWbUyyqiUcrn/gzm1QuFqHYVKetvie4nlwWehc7VCMOFJJDPa50zGYFRHgtFGeVyLPDqmSoNdH0PnNAzafOZdTYg9jDn7wpUaqM3XfWW3RneJztosipb9WvGl/v5ylSqsWINvprLA/XSNZmlGnRJn9PrFIzFDYtGcO87ePSmSGbov3MagvAarDPAUILMNDbRu0mxHEMQPCajgrfbw6Q5wvlnELTFwAWAOh1kWO5WxF8x9mBtrdi30Ev0opHMcpSytvozp4jVJ1qVP5rS5gKlSo6pnqE1GCjxE6mWf+69a+hX+Rj/Sark7lCquKpVKuTJSPtCBe5YbRW0Xrekb+gicO4ecx/wDL0izE7vVP+Z4liuJtUqCob+8Z6B+1LjJYpg6ZJ+OoF1zN0H67zzlsFUKEBHvT8W2plDTas2Rkk0vRruWcafdvqdcvQTQ4XgVKuxqVPaZr38LZbmeb8J4gaZNt9rHpPUOV8UaiXNtfmZRJG7HKwlh+G00Gl9PxsWIEsCjTG5A8gdDG4s2Xe3puYFx+FqVFsrOCNcwNhERe267C9fCo2l1lH/sWg5OdA1/xEkCc4alQAB2ube91aXMRVyAlv9pCOWgHVprQLJTsFGiqNgJm+K8VJNhf06SziuJD2tRSbhrgBjoJk+IVyHIbbNoepjRjsolLWinxTE5iTc67jexmm5V5jw1DDmnUqZXBJyMpa48pjcY+ltNTr6yiJZxtFHNxdoM8xcY/eql1zCnTPgDaFj3gtVnEWTBY60Vyk27ZDad6X6/lOuJTq12BIB09Lwi78BajVAtvnNrPmsoXtaXKeKBNjYep0maGIbe50+Vo/wDeWPxNIBxvs0quDsRFM6uJcbM49DFJYn4zXcx8HXC4XDAWz1hmqN1djBXLmC9tiqFM6h6oLdio1P5QjzfxA1Xp0+mGTL6mUuBVDTqpUAY+zufD+K0fyKr4b7Pd0oooHu6aTjog1OW3feeYU+Z8RUIVadQknr4QJveD3ekTUJ9pT111BGsJn40Wa1WmovYgH4rakxoxuUhl3GoB6jzlTibg00BbZidTYAym+IpqhdmFhsL3vDQLfgq8Vwi1S7m2dmz5+uaBMKc3tKexNyO+aWsTxmmRdCLXsRe9jAjY+1X2g2bcbawWuh0paZnqqGnUYEHRzcdVabTlzjBpqASzHoqnUGZHjDh6rOp96xYd5HhsWQTqfXylLimdCEmqZt8TzFVeqBdgg0y30LdZqsPi0NPMSAMoB7knrPKP3xbgAklTuDrDw46GUU72GSxB90tEcUWrI/Ib4nx9qFRCuWzLfvf1ixPMwqLpa1RdVOjo39ZiMTjWd9SCAttfdt0ld66gDewOh+JTCooV5GS8RxxZ2b5d84gqriGbc3+5URteoWuRqL6jtDHLfBzVqBiCUGrHYSOkCNydATE4dkVGa/8AE1AOhtIFMPc7jJUpoBoqnbYCZn2g/WkaO0LNVKi4hEsIYLTED9d5OmLF94whZq9YIrG7E+cu4jEDW3X7SjaQiORyxBY68hCVBeKRo5EUFEC+Jq+0qM34j9JewBqICQCFbUHeDF7wvheJoKYU5b5bekcrl1SLOHxzBhqflDVPmCovulxcWPi0ZZkUxdzYC5vpbUmXsPUdjqLDz3MKt9FbivIVx/HKjjKL6HvexgqrxSoUKk6fcTrvcN3TrBrPmJGxvuNjGlFoMYr0OpVspLXPj3W+l42rjGPW32kZon1+04tBibAE+mukRplmh+GBd0Q3/iOFv1FzCnF+BNh9RdlHxdQPOLh2HCVKexcuo7hNZ6NicGKiWYAhh66SrJcWjThipRZ4/lIOl/6yQVCNdb/QT1JOWKLLbItvSzfWVq/KFPW2by65TK+ZasP9PNEqNcnXxb23IjiztYbi3a5E245K8VySF7DtDXDOVqSEHID5sLgQ8xXiZiuC8uVK7B2GSm7XJtY2nomG4elKmFpqigDoLFoVpYQKLAKAOlrWjcSlgYspNhjFLo8m55T+MvYJ97zLol9LTZc8UD7RHt4QCpborTM0sOTqLG3Qe8JfBfVGfI/sys1O2hA/OdWmOy/ST1E2nESEQYEHlE2HU7geuxk6ppH5BoOvX0kIUHwXYkeR1Egegy7jTuNRCtoikhLAmsUJV8IDcrofs0UhLOubKZBSw7nZXPnawmhoYdbA5R9I4i5ygaLue5mlYvZQ8noo8LwrBizC2QadfFL7OEBO5/IywqWUDvreUcSNQJZx4rQqfJ7Ghzkdj8Uo00O8u1x4APxH7RtHDk7aDq3nEcbY6lSH0ad/7y8iBRoN/qYlQCwG35wrwPhxxNZKY0Vjmep0pUhuY9V2I3Y/g2FFPJWcA1MW5p4Wm2uVR77/AP5HmTN/QpAoD+iZiPbivi6lRRalh7UcNTHu06C7fXeeg4Bb0x6TnZZcpHRwLjH/AEsYfDgiP/dB5SegNJMyiV0WOTBlTDDbf8hH08N5S4tOSMkNA5FF6Yg7FoALD09IZqCCsUusFETM7X4atbPTceHEj2ZO+Rj7p+RsZ5lhMJUp1KlOoCGpNlPYtPX3TKubrnDeljMXzXQCYzEAC3jzfIi80fHtujN8ilsyWKw9rkbbkdpAg6Qy9OVKmD1JX+XofSXzx+UZ4z8MrFP15xto8N0/wRONa0poexAROmk6slI6SUGyrFJMsUFkCtEWS/YXjKC/VtTJB7lvO3rrO4db5m87CdAyeyZRuYLrG9Q+UKNop9IKTVmPnJLwSPkteyBC30A+5jgOnQbAaC0mqKLLbVbW9GjVWRIjZybrBcHr4Th2KrslquJphVQG74fDk6k9jY/aZnl3Be3xeHp2uGqguNwyDU/YGer85Yj2eBrnrUX2Y/1G35EyjLJ8lFeS2EU4uT8Hl3AU0KjfMD8p6LwVroB+HSYHlsj22T8Sn5tN/wADS2Yf+6Y8sak0b8MuUEwpktHhI8IZy1og9nbWjHMeY1lkFIG2lKsl5frCw9ZUxLqilmIAUXuegholgDmLFrSpG58TaKvUtMzzoP8AxZPV6SM3m2UQrw2gvE8a61C/scPTL2U5CTcAD53+0rftEwmTFBwbivTHh6oRpNWCKi68mTPJy2ujJtOqkVo6nvNdGVsoYvDHOSMpvrbY3lNuxEJVn8TH5Sk4zH0lcoosi2S0kFhJdD+tpEg6CWqFPvCo3oEnRSq0iuvT7rFCjUgdwP7iKI8CsH5WVzuR5giWVSygfXzMrot2X7/KWyJoQkmRYk2QynQpeG/4pbxo8EZRHhEHkidIrlytW2uRls6jWx6GW8hFut9mGquJEyfxD1k6kqLCxU6lG2v5dpEiSd0bL9meDzYmpVI0w1KwPaox/sDDX7R6/goUw1s9Q1GHVgBYfn9pD+zTEUhRri4V1fO4Y2y0baG/reAOeeIriMSQj+CmgRainRzubTKk5Zb9F7fHHXsGcPrKtSnUFrI2rLoxE9O4SgvcHSpqCNjPK6WlrAeY856TyjiQ9FdTen4T1Ii/Jh1Is+LPTiaJBqbyJzc2najHWNpi2vf6zIa/6SMsjdrTrN57fQQJxDmPC0iVNTMyDVKYz2PrGUW+kI5Jdsu4vFKoLMQAvU6Tz/mHmE1706dxTvbNs1X/ABK/MHHHrEfCjXyUwbkjuYDzaek2YsNbl2Zcua/rHo9D/Zfh/Bia3/MqLTB7ZRc//YQDz9iQ+Ly9KNMDuATrNryJh/Z8OpHY1s1Q+dybfYCeZcwVfaYqu17j2hUdfCNJMSubYmTUYoHse04xspPU6DzMQEi4g+XKOwv21mhlSRUdrabyNAdT3j6a5v69hLNGmCbdF/OL2NaRymlh6y0gsBGqt2t+GSMbaxkhJOxC8U5cnyijUKNwmtz+ryyBFFCgS7IcaPDI8ONBORQeRl0KoLVPWT5f12iihAzQ8AAXCcSfquGVLjQhWJ/tAysCBa1gP+q0UUpj+8h3+sRLpNVyVjslQ0ydKouvmw/xFFJm/Vhwv7o9B0OsCcV5mw2HupcPUA0pU/F4uxOwiimLHFN7N2STS0YbivM9fEXW4p0/+VTbKT6nrAniYEbX+O+fSKKdGMElowOTb2cdCXJ3FMBQekjqU73AiihFPUOB8eorw2mzMtM4an7Ah/CXrIo29dD855g5LEt1dix9TFFKcKVyLMjehyJbcgW110vBGLf2lQ21A0v5RRR2KicpYBR1+sslci+cUUIGOorYXO5nT5/KKKFAfY0mdiihAf/Z" alt="" />
+            </div>
+            <h1>Renan Brandão</h1>
+        </header>
+        <div class="container mainContent">
+
+        <div class="form">
+        <input type="file" name="imagem" id="imagem" value="" />
+        <input type="text" name="titulo" id="titulo" value="" placeholder="Titulo"/>
+        <input type="text" name="descricao" id="descricao" value="" placeholder="descricao" />
+        
+        <input type="button" name="publicarButton" id="publicarButton" value="Publicar" />
+         </div>
+         
+        <div id="mainContent">
+        </div>
+        <div>
+            <ul id="paginas">
+            </ul>
+        </div>
+        </div>
+        
+        <script>
+        
+        (function(){
+            
+            
+            
+           
+            let title = document.getElementById("titulo");
+            let descricao = document.getElementById("descricao");
+            let imagem = document.getElementById("imagem");
+            let button = document.getElementById("publicarButton");
+            
+                        
+            let POSTS =[];
+            
+            
+            button.addEventListener("click", function(){
+                if(imagem.value == ""){
+                alert("Insira uma imagem");
+                return;
+                }
+
+                POSTS.unshift([title.value,descricao.value, imagem.files[0]]);
+                insertPosts(0,itensPorPagina);
+                gerarPaginas();
+                title.value = "";
+                descricao.value = "";
+                imagem.value = "";
+            })
+            
+            
+            var itensPorPagina = 5;
+            
+            
+            
+            var paginas = 0;
+        
+            function createPost(title,description, imageLink){
+            
+            let post = document.createElement("div");
+            post.classList.add("card", "text-bg-dark", "mb-3");
+            
+            let imgContainer = document.createElement("img");
+            
+            
+            imgContainer.src = window.URL.createObjectURL(imageLink);
+            imgContainer.classList.add("card-img-top");
+            imgContainer.onload = function(e){
+                window.URL.revokeObjectURL(this.src);
+            }
+            
+            let divParagraf = document.createElement("div");
+            divParagraf.classList.add("card-body");
+            
+            let $title = document.createElement("h5");
+            $title.classList.add("card-title");
+            $title.textContent = title;
+            
+            divParagraf.appendChild($title)
+            
+            let $paragraf = document.createElement("p");
+            $paragraf.classList.add("card-text");
+            $paragraf.textContent = description;
+            
+            divParagraf.appendChild($paragraf);
+            
+            
+            
+            
+            post.appendChild(imgContainer);
+            post.appendChild(divParagraf);
+            
+            return post;
+        }
+
+        function gerarPaginas(){
+           let ul = document.getElementById("paginas");
+           ul.innerHTML ="";
+           paginas= 0
+           for(let i = 0; i<POSTS.length; i+=itensPorPagina){
+               paginas++;
+               let li = document.createElement("li");
+               let a = document.createElement("a");
+               a.classList.add("page");
+               a.textContent=paginas;
+               a.addEventListener("click", function(){
+                   
+                   insertPosts(i,i+itensPorPagina);
+               })
+               li.appendChild(a);
+               ul.appendChild(li);
+           }
+           
+        }
+        
+            
+        function insertPosts(firstItem, lastItem){
+            rota = document.getElementById("mainContent");
+            rota.innerHTML = "";
+            POSTS.forEach(function(element, index){
+                if (index>=firstItem && index<lastItem) {
+                    let divPost = createPost(element[0], element[1], element[2]);
+                    rota.appendChild(divPost);
+                }
+                
+            })
+        }
+        gerarPaginas();
+        insertPosts(0,itensPorPagina);
+        
+        
+        })();
+
+        </script>
+
+    </body>
+</html>

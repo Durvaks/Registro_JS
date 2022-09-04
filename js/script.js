@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
     /*Main Menu*/
     document.getElementById("nav_list").innerHTML=`
         <li class="nav-item">
-            <a class="nav-link"  href="index.html">Principal</a>
+            <a class="nav-link"  href="Index.html">Principal</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="Metodologias.html">Metodologias</a>
@@ -16,6 +16,9 @@ window.addEventListener('load', () => {
         </li>
         <li class="nav-item">
             <a class="nav-link" href="Linux.html">Linux</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="arquivo.html">Upload de Arquivos</a>
         </li>
         `
     
@@ -173,7 +176,7 @@ window.addEventListener('load', () => {
     /*about React*/
     let react = [
         "Criar novo projeto : No terminal, npx create-react-app nome-proj",
-        "Acessar pasta do projeto : cd my-first-app",
+        "Acessar pasta do projeto : cd nome-proj",
         "Abrir no vs-code : code .",
         "no terminal do vs : npm star (inicia o servidor de desenvolvimento"
         ];
